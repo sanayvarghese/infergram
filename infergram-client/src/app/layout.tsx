@@ -2,7 +2,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
-
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
@@ -52,10 +53,12 @@ export default function RootLayout({
         )}
       >
         <Toaster position="bottom-center" />
-        <NextUIProvider className="flex flex-col min-h-screen">
-          <main className="flex-grow mx-auto">{children}</main>
-          <Footer />
+        <NextUIProvider className="min-h-screen">
+          <main className=" mx-auto w-full sm:w-[90%]">{children}</main>
         </NextUIProvider>
+        <Footer />
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );

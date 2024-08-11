@@ -242,6 +242,10 @@ io.on("connection", (socket: Socket) => {
         skipVotes: room.skipVotes.size,
         totalPlayers: room.players.size,
       });
+      io.to(roomId).emit("message", {
+        type: "success",
+        message: `${player.name} Joined the room.`,
+      });
       io.to(roomId).emit("playerList", Array.from(room.players.values()));
     } else {
       socket.emit("error", "Room not found");

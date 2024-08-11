@@ -132,10 +132,8 @@ export default function Home() {
 
   if (isInGame) {
     return (
-      <main className="mx-auto p-5 w-full lg:w-[90%]">
-        {/* <h1 className="text-2xl font-bold mb-4">Room Code: {roomCode}</h1>
-        <FaRegCopy onClick={() => {}} /> */}
-        <div className="flex">
+      <div className="p-5 w-full">
+        <div className="flex w-full">
           <div className="w-full">
             <GameArea
               isInGame={isInGame}
@@ -146,7 +144,7 @@ export default function Home() {
             />
           </div>
         </div>
-      </main>
+      </div>
     );
   }
   return (
